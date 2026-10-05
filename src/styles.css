@@ -10,7 +10,7 @@ img { display:block; max-width:100%; }
 h1,h2,h3,p { margin-top:0; }
 h1,h2,h3 { font-family:'Oswald', Impact, sans-serif; line-height:.9; text-transform:uppercase; letter-spacing:-.045em; }
 em { font-family:'Playfair Display',Georgia,serif; font-weight:700; text-transform:none; }
-.site-header { height:86px; padding:12px clamp(20px,4vw,64px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); position:fixed; inset:0 0 auto; z-index:30; background:rgba(255,248,237,.96); backdrop-filter:blur(12px); }
+.site-header { height:86px; width:100%; padding:12px clamp(20px,4vw,64px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,248,237,.96); backdrop-filter:blur(12px); transform:translateZ(0); }
 main { padding-top:86px; }
 .logo { width:112px; height:58px; object-fit:cover; object-position:center; }
 .nav { display:flex; gap:clamp(22px,3.2vw,52px); align-items:center; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }

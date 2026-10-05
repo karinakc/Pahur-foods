@@ -29,7 +29,13 @@ function Logo() {
 function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  useEffect(() => setOpen(false), [location.pathname]);
+  useEffect(() => setOpen(false), [location.pathname, location.hash]);
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
   return (
     <header className="site-header">
       <Link to="/" aria-label="Pahur Foods home"><Logo /></Link>
