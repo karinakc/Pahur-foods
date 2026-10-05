@@ -11,7 +11,7 @@ import hero from './assets/hero.webp';
 import pahurBags from './assets/pahurbags.webp';
 import './styles.css';
 
-const images = { logo, combo, achar, hero, pahurBags };
+const images = { logo, combo, achar, hero, pahurbags: pahurBags };
 const asset = (name) => images[name.replace(/\.(png|webp)$/, '')];
 
 function FacebookIcon() {
