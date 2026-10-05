@@ -4,15 +4,15 @@ import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-
 import { ArrowDownRight, ArrowRight, Menu, X } from 'lucide-react';
 import { locations, products } from './content';
 import logo from './assets/logo.png';
-import combo from './assets/combo.png';
+import combo from './assets/combo.webp';
 
-import achar from './assets/achar.png';
-import hero from './assets/hero.png';
-import pahurBags from './assets/pahurbags.png';
+import achar from './assets/achar.webp';
+import hero from './assets/hero.webp';
+import pahurBags from './assets/pahurbags.webp';
 import './styles.css';
 
 const images = { logo, combo, achar, hero, pahurBags };
-const asset = (name) => images[name.replace('.png', '')];
+const asset = (name) => images[name.replace(/\.(png|webp)$/, '')];
 
 function FacebookIcon() {
   return <svg className="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V7c0-1.1.7-1.5 1.7-1.5H18V2h-3.2C11.7 2 10 3.9 10 6.7v1.8H7V12h3v10h4V12h3.2l.5-3.5H14Z" /></svg>;
@@ -37,10 +37,11 @@ function Header() {
         {open ? <X /> : <Menu />}
       </button>
       <nav className={open ? 'nav open' : 'nav'} aria-label="Main navigation">
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/products">Products</NavLink>
         <NavLink to="/our-story">Our Story</NavLink>
         <Link to="/#where">Where to Buy</Link>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink className="nav-cta" to="/contact">Get in touch</NavLink>
       </nav>
     </header>
   );
@@ -97,7 +98,7 @@ function Hero() {
         </div>
       </div>
       <div className="hero-visual reveal">
-        <img className="hero-store-img" src={asset('hero.png')} alt="Inside the Pahur Foods shop in Pokhara" />
+        <img className="hero-store-img" src={asset('hero.webp')} alt="Inside the Pahur Foods shop in Pokhara" />
         <div className="hero-products" aria-hidden="true">
           <img src={products[4].image} alt="" />
           <img src={products[2].image} alt="" />
@@ -175,11 +176,11 @@ function Home() {
     </section>
     <section className="product-stack">{products.slice(0, 3).map((p, i) => <ProductFeature product={p} index={i} key={p.name} />)}</section>
     <section className="story-preview section-pad">
-      <div className="story-photo reveal"><img src={asset('pahurBags.png')} alt="Customers holding Pahur combo bags outside the Pahur shop" /><span>पोखरा • नेपाल</span></div>
+      <div className="story-photo reveal"><img src={asset('pahurbags.webp')} alt="Customers holding Pahur combo bags outside the Pahur shop" /><span>पोखरा • नेपाल</span></div>
       <div className="story-copy reveal"><p className="kicker">The Pahur story</p><h2>FROM OUR<br />SHOP TO<br /><em>YOUR TABLE.</em></h2><p>Pahur is rooted in the flavours people know and love. We make food that belongs beside the everyday meal—and makes it hit differently.</p><ArrowLink to="/our-story">Read our story</ArrowLink></div>
     </section>
     <section className="meal-banner reveal">
-      <img src={asset('achar.png')} alt="Pahur chicken timur achar jars with a serving bowl" />
+      <img src={asset('achar.webp')} alt="Pahur chicken timur achar jars with a serving bowl" />
       <div><p className="kicker">One spoon changes everything</p><h2>Your everyday meal,<br /><em>uplifted.</em></h2></div>
     </section>
     <WhereToBuy />
@@ -209,7 +210,7 @@ function ProductsPage() {
     <section className="product-catalog section-pad">{products.map((p, i) => <ProductTile product={p} index={i} key={p.name} />)}</section>
     <section className="combo-feature section-pad reveal">
       <div><p className="kicker">Better together</p><h2>THE NON-VEG<br /><em>COMBO.</em></h2><p>A selection of Pahur favourites packed together for gifting, sharing or stocking the pantry.</p><ArrowLink to="/contact?subject=order">Ask about the combo</ArrowLink></div>
-      <img src={asset('combo.png')} alt="Pahur Non Veg Combo pack" />
+      <img src={asset('combo.webp')} alt="Pahur Non Veg Combo pack" />
     </section>
     <Wholesale />
   </div>;
@@ -224,18 +225,18 @@ function StoryPage() {
         <p>Pahur is rooted in the flavours people know and love—and in the simple idea that an everyday meal can always use a little lift.</p>
       </div>
       <div className="story-hero-image reveal">
-        <img src={asset('pahurBags.png')} alt="Customers holding Pahur combo bags outside the shop" />
+        <img src={asset('pahurbags.webp')} alt="Customers holding Pahur combo bags outside the shop" />
         <span>पाहुर · Our story</span>
       </div>
     </section>
     <section className="story-chapters">
       <article className="story-chapter chapter-meal reveal">
-        <div className="chapter-image chapter-bag"><img src={asset('combo.png')} alt="Complete Pahur Non Veg Combo bag outside the shop" /></div>
+        <div className="chapter-image chapter-bag"><img src={asset('combo.webp')} alt="Complete Pahur Non Veg Combo bag outside the shop" /></div>
         <div className="chapter-copy"><p className="kicker">Chapter 01 · At the table</p><h2>EVERYDAY FOOD,<br /><em>TURNED UP.</em></h2><p>Pahur belongs beside the meals people already know and love—a simple addition that gives the everyday plate a bolder character.</p></div>
       </article>
       <article className="story-chapter chapter-place reveal">
         <div className="chapter-copy"><p className="kicker">Chapter 02 · The Pahur shop</p><h2>A PLACE FOR<br /><em>BIG FLAVOUR.</em></h2><p>Our shop brings the Pahur pantry together in one place, ready to move from our shelves into kitchens, lunchboxes and shared meals.</p></div>
-        <div className="chapter-image chapter-shop"><img src={asset('hero.png')} alt="Inside the Pahur Foods shop" /></div>
+        <div className="chapter-image chapter-shop"><img src={asset('hero.webp')} alt="Inside the Pahur Foods shop" /></div>
       </article>
     </section>
     <section className="story-principles section-pad"><p className="kicker">What guides us</p><div><h3>Familiar flavours.</h3><h3>Useful food.</h3><h3>A bolder everyday.</h3></div></section>
@@ -251,7 +252,7 @@ function ContactPage() {
     <section className="contact-shell">
       <div className="contact-editorial reveal">
         <div><p className="kicker">Say namaste</p><h1>LET’S TALK<br /><em>FOOD.</em></h1><p>Orders, stockist questions, wholesale or collaborations—send us a note.</p></div>
-        <div className="contact-shop"><img src={asset('hero.png')} alt="Inside the Pahur shop" /><p><strong>Pahur Shop</strong><br />Pokhara, Nepal<br />Contact us for current address and hours.</p></div>
+        <div className="contact-shop"><img src={asset('hero.webp')} alt="Inside the Pahur shop" /><p><strong>Pahur Shop</strong><br />Pokhara, Nepal<br />Contact us for current address and hours.</p></div>
         <div className="contact-socials">
           <a href="https://www.facebook.com/aayokhana/" target="_blank" rel="noreferrer"><FacebookIcon /><span>Facebook</span><ArrowRight size={17} /></a>
           <a href="https://www.instagram.com/pahur.foods/" target="_blank" rel="noreferrer"><InstagramIcon /><span>Instagram</span><ArrowRight size={17} /></a>
