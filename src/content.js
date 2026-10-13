@@ -1,11 +1,12 @@
-import lasoonTimur from './assets/lasoon-timur.jpg';
-import sidhraMachha from './assets/sidhra-machha.jpg';
-import yanjiChicken from './assets/yanji-chicken.jpg';
-import polayekoBuff from './assets/polayeko-buff.jpg';
-import lasoon from './assets/lasoon.jpg';
-import mangoMurabba from './assets/mango-murabba.jpg';
-import tangyMango from './assets/tangy-mango.jpg';
-import timurHimalayan from './assets/Timur-himalayan.jpg';
+import lasoonTimur from './assets/lasoon-timur.webp';
+import sidhraMachha from './assets/sidhra-machha.webp';
+import yanjiChicken from './assets/yanji-chicken.webp';
+import polayekoBuff from './assets/polayeko-buff.webp';
+import lasoon from './assets/lasoon.webp';
+import mangoMurabba from './assets/mango-murabba.webp';
+import tangyMango from './assets/tangy-mango.webp';
+import timurHimalayan from './assets/Timur-himalayan.webp';
+import buffChoila from './assets/choila.webp';
 
 // Keep business details here so they can be updated without touching the layouts.
 export const products = [
@@ -26,7 +27,7 @@ export const products = [
   {
     name: 'Yanji Chicken',
     eyebrow: 'Chicken achar',
-    description: 'A rich chicken achar made for rice, roti, chiura or a quick bite straight from the jar.',
+    description: 'A rich chicken achar made for rice, roti, chiura or a quick savoury bite.',
     image: yanjiChicken,
     tone: 'red',
   },
@@ -47,7 +48,7 @@ export const products = [
   {
     name: 'Mango Murabba',
     eyebrow: 'Mango speciality',
-    description: 'Pahur Mango Murabba, presented in a pantry-ready jar.',
+    description: 'Pahur Mango Murabba, packed and ready for the pantry.',
     image: mangoMurabba,
     tone: 'orange',
   },
@@ -65,15 +66,22 @@ export const products = [
     image: timurHimalayan,
     tone: 'aqua',
   },
+  {
+    name: 'Buff Choila',
+    eyebrow: 'Packaged choila',
+    description: 'Pahur Buff Choila, packed as a convenient set for the everyday table.',
+    image: buffChoila,
+    tone: 'choila',
+  },
 ];
 
 export const locations = [
   {
     number: '01',
-    title: 'Pahur Shop',
-    detail: 'Pokhara, Nepal · Contact us for current address and opening hours',
-    action: 'Get shop details',
-    href: '/contact',
+    title: 'Pahur Shops',
+    detail: 'Pokhara & Butwal, Nepal · Contact us for current addresses and opening hours',
+    action: 'View locations',
+    href: '/locations',
   },
   {
     number: '02',
@@ -84,9 +92,10 @@ export const locations = [
   },
   {
     number: '03',
-    title: 'Stock Pahur',
-    detail: 'For retailers, restaurants and hospitality partners',
-    action: 'Wholesale enquiry',
-    href: '/contact?subject=wholesale',
+    title: 'Order with Jiffy',
+    detail: 'Shop Pahur products online through Jiffy Services',
+    action: 'Order online',
+    href: 'https://www.jiffy-services.com/',
+    external: true,
   },
 ];
