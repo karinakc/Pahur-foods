@@ -248,7 +248,7 @@ main { padding-top:86px; }
 .wholesale::after { content:"पाहुर"; position:absolute; right:-2vw; bottom:-8vw; font-family:'Oswald'; font-size:32vw; line-height:1; color:rgba(255,255,255,.09); }
 .wholesale h2 { font-size:clamp(54px,8vw,128px); max-width:1100px; margin:30px 0 55px; position:relative; z-index:1; }
 .light { position:relative; z-index:2; }
-.footer { min-height:260px; padding:48px clamp(24px,5vw,75px); display:grid; grid-template-columns:1.1fr .7fr .8fr .8fr; align-items:end; gap:35px; background:var(--brown); color:var(--ivory); }
+.footer { width:100%; height:auto; min-height:0; padding:48px clamp(24px,5vw,75px) 56px; display:grid; grid-template-columns:minmax(180px,1.1fr) minmax(120px,.7fr) minmax(230px,1fr) minmax(180px,.8fr); align-items:start; gap:35px; overflow:visible; background:var(--brown); color:var(--ivory); }
 .footer .logo { filter:none; }
 .footer p { font-size:13px; margin:12px 0 0; }
 .footer-links { display:flex; flex-direction:column; gap:10px; font-size:13px; font-weight:700; text-transform:uppercase; }
@@ -264,7 +264,7 @@ main { padding-top:86px; }
 .social-icon { width:20px; height:20px; flex:0 0 20px; fill:currentColor; }
 .social-icon rect,.social-icon circle { fill:none; stroke:currentColor; stroke-width:1.8; }
 .social-icon .social-icon-dot { fill:currentColor; stroke:none; }
-.copyright { text-align:right; line-height:1.7; }
+.copyright { align-self:end; text-align:right; line-height:1.7; }
 .legal-backdrop { position:fixed; inset:0; z-index:400; display:grid; place-items:center; padding:clamp(14px,3vw,42px); background:rgba(48,32,22,.78); backdrop-filter:blur(9px); animation:legal-fade .2s ease both; }
 .legal-modal { width:min(1080px,100%); max-height:calc(100svh - clamp(28px,6vw,84px)); display:flex; flex-direction:column; overflow:hidden; border:1px solid var(--brown); border-top:8px solid var(--red); background:var(--ivory); box-shadow:0 30px 90px rgba(20,10,5,.38); animation:legal-rise .32s cubic-bezier(.2,.8,.2,1) both; }
 .legal-modal-header { flex:0 0 auto; display:flex; align-items:flex-start; justify-content:space-between; gap:30px; padding:clamp(24px,4vw,48px); border-bottom:1px solid var(--brown); background:var(--ivory); }
@@ -376,6 +376,12 @@ main { padding-top:86px; }
 .reveal { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s ease; }
 .reveal.is-visible { opacity:1; transform:none; }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; scroll-behavior:auto!important; transition:none!important; } .reveal { opacity:1; transform:none; } .preloader-panel>img,.preloader-words span,.preloader-spices i { opacity:1; transform:none!important; } }
+
+@media (max-width: 1200px) and (min-width: 801px) {
+  .footer { grid-template-columns:minmax(190px,.8fr) minmax(140px,.65fr) minmax(240px,1fr); gap:38px 44px; }
+  .footer-socials { min-width:230px; }
+  .copyright { grid-column:1 / -1; grid-row:2; align-self:start; text-align:left; margin-top:0; padding-top:22px; border-top:1px solid rgba(255,248,237,.24); }
+}
 
 @media (max-width: 800px) {
   .site-header { height:72px; padding:8px 20px; }
@@ -513,10 +519,12 @@ main { padding-top:86px; }
   .location-row strong { display:none; }
   .location-row p { line-height:1.45; }
   .wholesale h2 { font-size:14vw; }
-  .footer { grid-template-columns:1fr 1fr; align-items:start; gap:42px 28px; }
+  .footer { grid-template-columns:minmax(0,.8fr) minmax(150px,1.2fr); align-items:start; gap:38px 22px; padding:42px 22px 48px; }
   .footer>div:first-child { grid-column:1 / 3; }
   .footer-links { grid-column:1; grid-row:2; }
   .footer-socials { grid-column:2; grid-row:2; }
+  .footer-socials a { width:100%; max-width:100%; line-height:1.35; }
+  .footer-socials .footer-jiffy { width:100%; flex-wrap:wrap; }
   .copyright { grid-column:1/3; grid-row:3; text-align:left; }
   .legal-backdrop { padding:10px; }
   .legal-modal { max-height:calc(100svh - 20px); }
