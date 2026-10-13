@@ -45,7 +45,7 @@ function Preloader() {
     <div className="preloader-panel">
       <span className="preloader-nepali" aria-hidden="true">पाहुर</span>
       <img src={asset('logo.png')} alt="" />
-      <div className="preloader-words" aria-hidden="true"><span>Open.</span><span>Spoon.</span><span>Uplift.</span></div>
+      <div className="preloader-words" aria-hidden="true"><span>Open.</span><span>Taste.</span><span>Enjoy.</span></div>
       <div className="preloader-spices" aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <div className="preloader-line" aria-hidden="true"><span /></div>
     </div>
@@ -384,7 +384,7 @@ function ProductsPage() {
     <section className="products-hero">
       <div className="products-hero-copy reveal">
         <p className="kicker">The Pahur pantry</p>
-        <h1>ONE TABLE.<br /><em>MANY FLAVOURS.</em></h1>
+        <h1>ONE TABLE.<br /><em>MANY</em> <span className="products-hero-script">FLAVOURS.</span></h1>
         <p>Explore Pahur achar, packaged choila and Nepali specialties from garlic and timur to fish, buff, chicken and mango.</p>
       </div>
       <div className="products-hero-images reveal">
@@ -445,6 +445,12 @@ function ContactPage() {
           <a href="https://www.facebook.com/aayokhana/" target="_blank" rel="noreferrer"><FacebookIcon /><span>Facebook</span><ArrowRight size={17} /></a>
           <a href="https://www.instagram.com/pahur.foods/" target="_blank" rel="noreferrer"><InstagramIcon /><span>Instagram</span><ArrowRight size={17} /></a>
           <a href="https://www.tiktok.com/@pahur.foods" target="_blank" rel="noreferrer"><TikTokIcon /><span>TikTok</span><ArrowRight size={17} /></a>
+        </div>
+        <div className="contact-maps">
+          {shopLocations.map((shop) => <article key={shop.city}>
+            <iframe src={shop.map} title={`${shop.label} contact map`} loading="lazy" tabIndex="-1" referrerPolicy="no-referrer-when-downgrade" />
+            <a href={shop.directions} target="_blank" rel="noreferrer"><strong>{shop.city}</strong><small>Open map</small><ArrowRight size={15} /></a>
+          </article>)}
         </div>
       </div>
       <div className="contact-form-wrap reveal">
