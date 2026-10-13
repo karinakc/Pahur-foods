@@ -147,7 +147,7 @@ function Footer() {
         <div className="footer-links">
           <Link to="/products">Products</Link><Link to="/our-story">Our Story</Link><Link to="/contact">Contact</Link><button type="button" onClick={() => setLegalOpen('terms')}>Terms</button><button type="button" onClick={() => setLegalOpen('privacy')}>Privacy</button>
         </div>
-        <div className="footer-socials">
+        <div className="footer-contact">
           <a href="https://www.facebook.com/aayokhana/" target="_blank" rel="noreferrer"><FacebookIcon /> Facebook</a>
           <a href="https://www.instagram.com/pahur.foods/" target="_blank" rel="noreferrer"><InstagramIcon /> Instagram</a>
           <a href="https://www.tiktok.com/@pahur.foods" target="_blank" rel="noreferrer"><TikTokIcon /> TikTok</a>
