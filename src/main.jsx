@@ -143,15 +143,17 @@ function Footer() {
   return (
     <><footer className="footer">
       <div><Logo /><p>Uplifting your meal.</p></div>
-      <div className="footer-links">
-        <Link to="/products">Products</Link><Link to="/our-story">Our Story</Link><Link to="/contact">Contact</Link><button type="button" onClick={() => setLegalOpen('terms')}>Terms</button><button type="button" onClick={() => setLegalOpen('privacy')}>Privacy</button>
-      </div>
-      <div className="footer-socials">
-        <a href="https://www.facebook.com/aayokhana/" target="_blank" rel="noreferrer"><FacebookIcon /> Facebook</a>
-        <a href="https://www.instagram.com/pahur.foods/" target="_blank" rel="noreferrer"><InstagramIcon /> Instagram</a>
-        <a href="https://www.tiktok.com/@pahur.foods" target="_blank" rel="noreferrer"><TikTokIcon /> TikTok</a>
-        <a href="tel:9708678835"><Phone size={20} /> 970-8678835</a>
-        <a className="footer-jiffy" href="https://www.jiffy-services.com/" target="_blank" rel="noreferrer" aria-label="Order Pahur from Jiffy"><span>Order from</span><img src={jiffyLogo} alt="Jiffy" /></a>
+      <div className="footer-directory">
+        <div className="footer-links">
+          <Link to="/products">Products</Link><Link to="/our-story">Our Story</Link><Link to="/contact">Contact</Link><button type="button" onClick={() => setLegalOpen('terms')}>Terms</button><button type="button" onClick={() => setLegalOpen('privacy')}>Privacy</button>
+        </div>
+        <div className="footer-socials">
+          <a href="https://www.facebook.com/aayokhana/" target="_blank" rel="noreferrer"><FacebookIcon /> Facebook</a>
+          <a href="https://www.instagram.com/pahur.foods/" target="_blank" rel="noreferrer"><InstagramIcon /> Instagram</a>
+          <a href="https://www.tiktok.com/@pahur.foods" target="_blank" rel="noreferrer"><TikTokIcon /> TikTok</a>
+          <a href="tel:9708678835"><Phone size={20} /> 970-8678835</a>
+          <a className="footer-jiffy" href="https://www.jiffy-services.com/" target="_blank" rel="noreferrer" aria-label="Order Pahur from Jiffy"><span>Order from</span><img src={jiffyLogo} alt="Jiffy" /></a>
+        </div>
       </div>
       <p className="copyright">© {new Date().getFullYear()} Pahur Foods<br />Pokhara &amp; Butwal, Nepal</p>
     </footer>{legalOpen && <LegalModal type={legalOpen} onClose={() => setLegalOpen(null)} />}</>
