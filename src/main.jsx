@@ -40,6 +40,18 @@ function Logo() {
   return <img className="logo" src={asset('logo.png')} alt="Pahur Foods" />;
 }
 
+function Preloader() {
+  return <div className="preloader" role="status" aria-label="Loading Pahur Foods">
+    <div className="preloader-panel">
+      <span className="preloader-nepali" aria-hidden="true">पाहुर</span>
+      <img src={asset('logo.png')} alt="" />
+      <div className="preloader-words" aria-hidden="true"><span>Open.</span><span>Spoon.</span><span>Uplift.</span></div>
+      <div className="preloader-spices" aria-hidden="true"><i /><i /><i /><i /><i /></div>
+      <div className="preloader-line" aria-hidden="true"><span /></div>
+    </div>
+  </div>;
+}
+
 const legalCopy = {
   terms: {
     eyebrow: 'Website terms',
@@ -485,7 +497,16 @@ function LocationsPage() {
 }
 
 function App() {
-  return <Layout><Routes><Route path="/" element={<Home />} /><Route path="/products" element={<ProductsPage />} /><Route path="/our-story" element={<StoryPage />} /><Route path="/locations" element={<LocationsPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="*" element={<Home />} /></Routes></Layout>;
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setLoading(false), 1650);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  return <>
+    {loading && <Preloader />}
+    <Layout><Routes><Route path="/" element={<Home />} /><Route path="/products" element={<ProductsPage />} /><Route path="/our-story" element={<StoryPage />} /><Route path="/locations" element={<LocationsPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="*" element={<Home />} /></Routes></Layout>
+  </>;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<React.StrictMode><BrowserRouter><App /></BrowserRouter></React.StrictMode>);

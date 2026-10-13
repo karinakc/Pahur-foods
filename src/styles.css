@@ -10,6 +10,32 @@ img { display:block; max-width:100%; }
 h1,h2,h3,p { margin-top:0; }
 h1,h2,h3 { font-family:'Oswald', Impact, sans-serif; line-height:.9; text-transform:uppercase; letter-spacing:-.045em; }
 em { font-family:'Playfair Display',Georgia,serif; font-weight:700; text-transform:none; }
+.preloader { position:fixed; z-index:3000; inset:0; display:grid; place-items:center; overflow:hidden; background:var(--ivory); animation:preloader-exit .48s 1.28s cubic-bezier(.7,0,.2,1) forwards; }
+.preloader::before,.preloader::after { content:""; position:absolute; left:0; width:100%; height:50%; background:var(--red); transform:scaleY(0); animation:preloader-curtain .48s 1.22s cubic-bezier(.7,0,.2,1) forwards; }
+.preloader::before { top:0; transform-origin:top; }
+.preloader::after { bottom:0; transform-origin:bottom; }
+.preloader-panel { position:relative; z-index:2; width:min(520px,84vw); display:flex; flex-direction:column; align-items:center; color:var(--brown); }
+.preloader-panel>img { width:clamp(105px,12vw,150px); height:auto; opacity:0; transform:translateY(15px) scale(.92); animation:preloader-logo .5s .08s cubic-bezier(.2,.8,.2,1) forwards; }
+.preloader-nepali { position:absolute; top:50%; left:50%; z-index:-1; transform:translate(-50%,-54%); color:rgba(229,37,24,.07); font:700 clamp(120px,25vw,310px)/.7 'Oswald',sans-serif; }
+.preloader-words { display:flex; gap:clamp(14px,4vw,32px); margin-top:28px; font:600 clamp(22px,3.2vw,38px)/1 'Oswald',sans-serif; text-transform:uppercase; letter-spacing:-.02em; }
+.preloader-words span { opacity:0; transform:translateY(12px); animation:preloader-word .32s cubic-bezier(.2,.8,.2,1) forwards; }
+.preloader-words span:nth-child(1) { animation-delay:.3s; }
+.preloader-words span:nth-child(2) { animation-delay:.48s; color:var(--red); }
+.preloader-words span:nth-child(3) { animation-delay:.66s; }
+.preloader-spices { height:16px; display:flex; align-items:center; gap:8px; margin-top:25px; }
+.preloader-spices i { width:6px; height:6px; display:block; border-radius:50%; background:var(--red); opacity:0; animation:preloader-spice .55s .72s ease-out forwards; }
+.preloader-spices i:nth-child(2) { animation-delay:.78s; transform:translateY(-4px); }
+.preloader-spices i:nth-child(3) { animation-delay:.84s; }
+.preloader-spices i:nth-child(4) { animation-delay:.9s; transform:translateY(4px); }
+.preloader-spices i:nth-child(5) { animation-delay:.96s; }
+.preloader-line { width:min(290px,70vw); height:2px; margin-top:18px; overflow:hidden; background:rgba(48,32,22,.16); }
+.preloader-line span { width:100%; height:100%; display:block; background:var(--red); transform:translateX(-100%); animation:preloader-progress 1s .18s cubic-bezier(.4,0,.2,1) forwards; }
+@keyframes preloader-logo { to { opacity:1; transform:none; } }
+@keyframes preloader-word { to { opacity:1; transform:none; } }
+@keyframes preloader-spice { 0% { opacity:0; transform:translateY(10px) scale(.3); } 65% { opacity:1; transform:translateY(-4px) scale(1.25); } 100% { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes preloader-progress { to { transform:none; } }
+@keyframes preloader-curtain { to { transform:scaleY(1); } }
+@keyframes preloader-exit { to { opacity:0; visibility:hidden; } }
 .site-header { height:86px; width:100%; padding:12px clamp(20px,4vw,64px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,248,237,.96); backdrop-filter:blur(12px); transform:translateZ(0); }
 main { padding-top:86px; }
 .logo { width:112px; height:58px; object-fit:cover; object-position:center; }
@@ -341,7 +367,7 @@ main { padding-top:86px; }
 .form-note { background:#efb947; padding:16px; margin-top:15px; font-size:14px; }
 .reveal { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s ease; }
 .reveal.is-visible { opacity:1; transform:none; }
-@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; scroll-behavior:auto!important; transition:none!important; } .reveal { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; scroll-behavior:auto!important; transition:none!important; } .reveal { opacity:1; transform:none; } .preloader-panel>img,.preloader-words span,.preloader-spices i { opacity:1; transform:none!important; } }
 
 @media (max-width: 800px) {
   .site-header { height:72px; padding:8px 20px; }
